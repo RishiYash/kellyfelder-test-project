@@ -1,0 +1,26 @@
+{
+  "name": "kellyfelder-test-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "playwright test",
+  "test:kf": "playwright test --project=kellyfelder",
+  "test:sandbox": "playwright test --project=sandbox-chromium --project=sandbox-firefox",
+  "test:ci": "playwright test --project=sandbox-chromium --project=sandbox-firefox",
+  "test:headed": "playwright test --headed",
+  "report": "playwright show-report",
+  "typecheck": "tsc --noEmit",
+  "auth:kf": "playwright codegen --save-storage=.auth/kellyfelder.json https://kellyfelder.com"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "dotenv": "^18.0.7",
+    "typescript": "^7.0.2"
+  }
+}
