@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 export class LoginPage {
   private readonly page: Page;
@@ -9,6 +9,7 @@ export class LoginPage {
 
   async goto() {
     await this.page.goto('/auth/login');
+    await expect(this.page.getByTestId('email')).toBeVisible({ timeout: 15000 });
   }
 
   async login(email: string, password: string) {

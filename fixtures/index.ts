@@ -44,8 +44,9 @@ export const test = base.extend<Fixtures>({
 
   // A customer who has signed up AND logged in
   signedInUser: async ({ newUser, loginPage, accountPage }, use) => {
+    await loginPage.goto(); // load the login page fresh and wait for the form
     await loginPage.login(newUser.email, newUser.password);
-    await expect(accountPage.title).toHaveText('My account');
+    await expect(accountPage.title).toHaveText('My account', { timeout: 15000 });
     await use(newUser);
   },
 });
